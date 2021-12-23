@@ -1,0 +1,49 @@
+#Creating database
+
+1)CREATE DATABASE casestudy;
+
+#Selecting database
+
+2)USE casestudy;
+
+#Creating User Table
+
+3)CREATE TABLE user (USER_ID int, 
+                     PASSWORD varchar(10),
+                     USERNAME varchar(15),
+                     EMAIL varchar(30),
+                     FIRST_NAME varchar(15),
+                     LAST_NAME varchar(15),
+                     CONTACT_NUMBER bigint,
+                     ROLE varchar(10),
+                     IS_ACTIVE boolean,
+                     DOB date,
+                     CREATED_ON datetime,
+                     PRIMARY KEY (USER_ID))
+
+#Inserting values into user table
+
+4)INSERT INTO user  VALUES(1,'abc', 'sumana.pb@sonata-software.com', 'SUMANA','PASUPALA',8183018165,
+  'DEVELOPER',true,'1999-09-08','2021-12-15')
+
+#Creating Task Table
+
+5)CREATE TABLE task (TASK_ID int,
+                     OWNER_ID int,
+                     CREATOR_ID int,
+                     NAME varchar(30),
+                     DESCRIPTION varchar(30),
+                     STATUS varchar(30),
+                     PRIORITY varchar(30),
+                     NOTES varchar(30),
+                     ISBOOKMARKED boolean,
+                     CREATED_ON datetime,
+                     STATUS_CHANGED_ON datetime,
+                     PRIMARY KEY (TASK_ID),
+                     FOREIGN KEY (OWNER_ID) references USER(USER_ID),
+                     FOREIGN KEY (CREATOR_ID) references USER(USER_ID) on DELETE CASCADE)
+ 
+#Inserting values into task table
+
+6)INSERT INTO task  VALUES(21044,'2', '2','MYSQL', 'DB LANGUAGE','COMPLETED',HIGH','xyz'
+   'false',' 2001-12-20','2000-10-28 12:20:40');
